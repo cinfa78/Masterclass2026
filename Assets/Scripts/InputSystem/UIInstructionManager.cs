@@ -9,11 +9,11 @@ namespace InputSystemClass{
         [SerializeField] private string _keyboardTooltip;
         [SerializeField] private string _controllerTooltip;
 
-        private void OnEnable(){
+        private void Start(){
             DeviceListenerController.Instance.DeviceChanged += OnDeviceChanged;
         }
 
-        private void OnDisable(){
+        private void OnDestroy(){
             DeviceListenerController.Instance.DeviceChanged -= OnDeviceChanged;
         }
 
@@ -21,7 +21,8 @@ namespace InputSystemClass{
             Debug.Log($"Device changed: {newInputDevice.displayName}");
             if (newInputDevice is Gamepad){
                 _instructionsText.text = _controllerTooltip;
-            }else if (newInputDevice is Keyboard){
+            }
+            else if (newInputDevice is Keyboard){
                 _instructionsText.text = _keyboardTooltip;
             }
         }

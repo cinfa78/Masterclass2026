@@ -36,9 +36,6 @@ namespace InputSystemClass{
 
         private void Start(){
             _menuOptions[_currentButtonSelected].Select();
-            //_navigateAction.started += Navigate;
-            //_navigateAction.canceled += Navigate;
-            //_navigateAction.performed += Navigate;
         }
 
         private void OnEnable(){
